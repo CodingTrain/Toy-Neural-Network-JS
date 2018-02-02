@@ -54,9 +54,9 @@ class Matrix {
 
   add(n) {
     if (n instanceof Matrix) {
-      for (let i = 0; i < this.rows; i++) {
-        for (let j = 0; j < this.cols; j++) {
-          this.data[i][j] += n.data[i][j];
+      for (let j = 0; j < this.rows; j++) {
+        for (let i = 0; i < this.cols; i++) {
+          this.data[j][i] += n.data[j][i];
         }
       }
     } else {
