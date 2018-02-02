@@ -76,7 +76,24 @@ test('multiplying matrix with scalar', () => {
   });
 });
 
-test('using map on a matrix', () => {
+test('mapping a matrix using static map', () => {
+  let m = new Matrix(3, 3);
+  m.data[0] = [1, 2, 3];
+  m.data[1] = [4, 5, 6];
+  m.data[2] = [7, 8, 9];
+  let mapped = Matrix.map(m, elem => elem * 10);
+  expect(mapped).toEqual({
+    rows: 3,
+    cols: 3,
+    data: [
+      [10, 20, 30],
+      [40, 50, 60],
+      [70, 80, 90]
+    ]
+  });
+});
+
+test('mapping a matrix using member map', () => {
   let m = new Matrix(3, 3);
   m.data[0] = [1, 2, 3];
   m.data[1] = [4, 5, 6];
