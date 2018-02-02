@@ -1,5 +1,6 @@
 // let m = new Matrix(3,2);
 
+
 class Matrix {
   constructor(rows, cols) {
     this.rows = rows;
@@ -52,7 +53,6 @@ class Matrix {
   }
 
   add(n) {
-
     if (n instanceof Matrix) {
       for (let i = 0; i < this.rows; i++) {
         for (let j = 0; j < this.cols; j++) {
@@ -143,3 +143,6 @@ class Matrix {
 
 
 }
+
+
+module.exports = Matrix;
