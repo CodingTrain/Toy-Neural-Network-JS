@@ -29,7 +29,7 @@ test('product test',()=>{
     rows: 1,
     cols: 1,
     data: [
-      14
+      [14]
     ]
   });
 });
