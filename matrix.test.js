@@ -24,11 +24,13 @@ test('adding matrix to matrix', () => {
   m1.data[2] = [7, 8, 9];
   
   let m2 = new Matrix(3,3);
-  m1.data[0] = [7, 5, 1];
-  m1.data[1] = [0, 5, 9];
-  m1.data[2] = [4, 2, 9];
+  m2.data[0] = [7, 5, 1];
+  m2.data[1] = [0, 5, 9];
+  m2.data[2] = [4, 2, 9];
   
-  expect(m).toEqual({
+  m1.add(m2);
+  
+  expect(m1).toEqual({
     rows: 3,
     cols: 3,
     data: [
