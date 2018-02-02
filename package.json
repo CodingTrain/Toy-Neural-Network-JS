@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/shiffman/Toy-Neural-Network-JS#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "jest": "^22.1.4"
   }
 }
