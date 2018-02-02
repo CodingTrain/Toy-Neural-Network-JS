@@ -1,4 +1,4 @@
-const Matrix = require('./Matrix');
+const Matrix = require('./matrix');
 
 test('adding scalar to matrix', () => {
   let m = new Matrix(3, 3);
