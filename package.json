@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/shiffman/Toy-Neural-Network-JS/issues"
   },
-  "homepage": "https://github.com/shiffman/Toy-Neural-Network-JS#readme"
+  "homepage": "https://github.com/shiffman/Toy-Neural-Network-JS#readme",
+  "devDependencies": {
+    "jest": "^22.1.4"
+  }
 }
