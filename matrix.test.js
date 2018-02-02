@@ -24,7 +24,7 @@ test('product test',()=>{
   n.data[0] = [1];
   n.data[1] = [2];
   n.data[2] = [3];
-  let mn = multiply(m, n);
+  let mn = Matrix.multiply(m, n);
   expect(mn).toEqual({
     rows: 1,
     cols: 1,
