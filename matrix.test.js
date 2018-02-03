@@ -27,7 +27,6 @@ test('adding matrix to matrix', () => {
   m2.data[0] = [7, 5, 1];
   m2.data[1] = [0, 5, 9];
   m2.data[2] = [4, 2, 9];
-  
   m1.add(m2);
   
   expect(m1).toEqual({
