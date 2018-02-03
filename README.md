@@ -22,6 +22,12 @@ npm install
 
 This Project doesn't require any additional Installing steps
 
+### Documentation
+
+* `NeuralNetwork` - The neural network class
+  * `feedforward(input_array)` - Returns the output of a neural network
+  * `train(input_array, target_array)` - Trains a neural network
+
 ## Running the tests
 
 The Tests can either be checked via the automaticly running CircleCI Tests or you can also run `npm test` on your PC after you have done the Step "Prerequisites"
