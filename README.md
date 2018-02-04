@@ -25,7 +25,7 @@ This Project doesn't require any additional Installing steps
 ### Documentation
 
 * `NeuralNetwork` - The neural network class
-  * `feedforward(input_array)` - Returns the output of a neural network
+  * `predict(input_array)` - Returns the output of a neural network
   * `train(input_array, target_array)` - Trains a neural network
 
 ## Running the tests
