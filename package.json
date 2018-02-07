@@ -4,6 +4,7 @@
   "description": "Toy Neural Network JavaScript library for Coding Train tutorials",
   "main": "",
   "scripts": {
+    "format": "prettier '**/*.js' --write",
     "test": "jest"
   },
   "repository": {
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/shiffman/Toy-Neural-Network-JS#readme",
   "devDependencies": {
-    "jest": "^22.1.4"
+    "jest": "^22.1.4",
+    "prettier": "^1.10.2"
   }
 }
