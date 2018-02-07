@@ -41,7 +41,7 @@ function draw() {
       let y = j * resolution;
       let input_1 = i / (cols - 1);
       let input_2 = j / (rows - 1);
-      let output = nn.feedforward([input_1, input_2]);
+      let output = nn.predict([input_1, input_2]);
       let col = output[0] * 255;
       fill(col);
       noStroke();
