@@ -46,7 +46,7 @@ Please send PullRequests. These need to pass a automated Test first and after it
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/CodingTrain/Toy-Neural-Network-JS/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/CodingTrain/Toy-Neural-Network-JS/tags).
 
 ## Authors
 
