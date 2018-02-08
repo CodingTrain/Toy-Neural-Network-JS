@@ -4,7 +4,7 @@ Neural Network JavaScript library for Coding Train tutorials
 
 ## Getting Started
 
-If you're looking for the original source code to match the videos [visit this repo] (https://github.com/CodingTrain/Rainbow-Code/tree/master/Courses/natureofcode/10.18-toy_neural_network)
+If you're looking for the original source code to match the videos [visit this repo](https://github.com/CodingTrain/Rainbow-Code/tree/master/Courses/natureofcode/10.18-toy_neural_network)
 
 TODO
 
