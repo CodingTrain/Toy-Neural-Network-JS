@@ -1,17 +1,18 @@
-# Toy-Neural-Network-JS
+# Toy-Neural-Network-JS ![Build Status](https://circleci.com/gh/CodingTrain/Toy-Neural-Network-JS.png?&style=shield&circle-token=:circle-token)
 
 Neural Network JavaScript library for Coding Train tutorials
 
 ## To-Do List
 
 * [x] Redo gradient descent video about
-* [x] delta weight formulas, connect to "mathematics of gradient" video
-* [x] Impelment gradient descent in library / with code
+* [x] Delta weight formulas, connect to "mathematics of gradient" video
+* [x] Implement gradient descent in library / with code
 * [ ] XOR coding challenge
 * [ ] MNIST coding challenge
 * [ ] Support for multiple hidden layers
 * [ ] Support for different activation functions
 * [ ] Combine with ml5 / deeplearnjs
+* [ ] Coding Challenge: the "Hello World" of NN - handwritten number recognition
 
 ## Getting Started
 
