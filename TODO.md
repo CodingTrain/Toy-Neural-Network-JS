@@ -8,3 +8,4 @@
 * [ ] Support for multiple hidden layers.
 * [ ] Support for different activation functions.
 * [ ] Combine with ml5 / deeplearnjs.
+* [ ] Coding Challenge: the "Hello World" of NN - handwritten number recognition
