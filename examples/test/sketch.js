@@ -10,22 +10,15 @@ let training_data = [{
   targets: [1]
 }, {
   inputs: [1, 1],
-  targets: [0]
+  targets: [1]
 }];
 
 let lr_slider;
-let reset_button;
 
 function setup() {
   createCanvas(400, 400);
   nn = new NeuralNetwork(2, 2, 1);
   lr_slider = createSlider(0.01, 0.1, 0.05, 0.01);
-  reset_button = createButton("Reset");
-  reset_button.mousePressed(reset);
-}
-
-function reset(){
-  nn.reset();
 }
 
 function draw() {
