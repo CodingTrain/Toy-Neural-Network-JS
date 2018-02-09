@@ -16,8 +16,8 @@ let train_image;
 let user_digit;
 let user_has_drawing = false;
 
-let user_guess_ele = select('#user_guess');
-let percent_ele = select('#percent');
+let user_guess_ele;
+let percent_ele;
 
 function setup() {
   createCanvas(400, 200).parent('container');
@@ -27,7 +27,8 @@ function setup() {
 
   train_image = createImage(28, 28);
 
-
+  user_guess_ele = select('#user_guess');
+  percent_ele = select('#percent');
 
   loadMNIST(function(data) {
     mnist = data;
