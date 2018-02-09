@@ -41,7 +41,7 @@ function train(show) {
     train_image.loadPixels();
   }
   for (let i = 0; i < 784; i++) {
-    let bright = mnist.train_images[i + train_index * 784];
+    let bright = mnist.train_images[train_index][i];
     inputs[i] = bright / 255;
     if (show) {
       let index = i * 4;
@@ -76,7 +76,7 @@ function train(show) {
 function testing() {
   let inputs = [];
   for (let i = 0; i < 784; i++) {
-    let bright = mnist.test_images[i + test_index * 784];
+    let bright = mnist.test_images[test_index][i];
     inputs[i] = bright / 255;
   }
   let label = mnist.test_labels[test_index];
