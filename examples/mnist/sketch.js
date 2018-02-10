@@ -14,6 +14,10 @@ let nn;
 let train_image;
 
 let user_digit;
+let user_has_drawing = false;
+
+let user_guess_ele;
+let percent_ele;
 
 function setup() {
   createCanvas(400, 200).parent('container');
@@ -23,7 +27,8 @@ function setup() {
 
   train_image = createImage(28, 28);
 
-
+  user_guess_ele = select('#user_guess');
+  percent_ele = select('#percent');
 
   loadMNIST(function(data) {
     mnist = data;
@@ -65,14 +70,6 @@ function train(show) {
   let prediction = nn.predict(inputs);
   let guess = findMax(prediction);
 
-  // select('#label').html(label);
-  // select('#guess').html(guess);
-  //
-  // if (guess == label) {
-  //   select('#guess').class('correct');
-  // } else {
-  //   select('#guess').class('wrong');
-  // }
   nn.train(inputs, targets);
   train_index = (train_index + 1) % mnist.train_labels.length;
 }
@@ -93,7 +90,7 @@ function testing() {
   }
 
   let percent = 100 * (total_correct / total_tests);
-  select('#percent').html(nf(percent, 2, 2) + '%');
+  percent_ele.html(nf(percent, 2, 2) + '%');
 
 
   test_index++;
@@ -114,6 +111,10 @@ function testing() {
 
 function guessUserDigit() {
   let img = user_digit.get();
+  if(!user_has_drawing) {
+    user_guess_ele.html('_');
+    return img;
+  }
   let inputs = [];
   img.resize(28, 28);
   img.loadPixels();
@@ -122,7 +123,7 @@ function guessUserDigit() {
   }
   let prediction = nn.predict(inputs);
   let guess = findMax(prediction);
-  select('#user_guess').html(guess);
+  user_guess_ele.html(guess);
   return img;
 }
 
@@ -151,6 +152,7 @@ function draw() {
   image(user_digit, 0, 0);
 
   if (mouseIsPressed) {
+    user_has_drawing = true;
     user_digit.stroke(255);
     user_digit.strokeWeight(16);
     user_digit.line(mouseX, mouseY, pmouseX, pmouseY);
@@ -159,6 +161,7 @@ function draw() {
 
 function keyPressed() {
   if (key == ' ') {
+    user_has_drawing = false;
     user_digit.background(0);
   }
 }
