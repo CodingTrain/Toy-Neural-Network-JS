@@ -11,6 +11,7 @@ Neural Network JavaScript library for Coding Train tutorials
 * [x] MNIST coding challenge
 * [ ] Support for saving / restoring network (see #50)
 * [ ] Support for different activation functions (see #45)
+* [ ] softmax activation, cross-entropy
 * [ ] Support for neuro-evolution
     * [ ] play flappy bird (many players at once). 
     * [ ] play pong (many game simulations at once)
