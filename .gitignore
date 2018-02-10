@@ -1,2 +1,4 @@
 .DS_Store
 node_modules
+*\# # Emacs cruft
+*~ # Emacs cruft
