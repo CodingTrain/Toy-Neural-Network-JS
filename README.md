@@ -2,13 +2,18 @@
 
 Neural Network JavaScript library for Coding Train tutorials
 
+## Examples / Demos
+Here are some demos running directly in the browser:
+* [XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
+* [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
+
 ## To-Do List
 
 * [x] Redo gradient descent video about
 * [x] Delta weight formulas, connect to "mathematics of gradient" video
 * [x] Implement gradient descent in library / with code
-* [x] XOR coding challenge
-* [x] MNIST coding challenge
+* [x] XOR coding challenge [live example](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
+* [x] MNIST coding challenge [live example](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
 * [ ] Support for saving / restoring network (see #50)
 * [ ] Support for different activation functions (see #45)
 * [ ] softmax activation, cross-entropy
@@ -68,3 +73,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **shiffman** - *Initial work* - [shiffman](https://github.com/shiffman)
 
 See also the list of [contributors](https://github.com/CodingTrain/Toy-Neural-Network-JS/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the terms of the MIT license, see LICENSE.
