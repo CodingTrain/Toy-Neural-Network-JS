@@ -50,7 +50,4 @@ function draw() {
       rect(i * resolution, j * resolution, resolution, resolution);
     }
   }
-
-
-
 }

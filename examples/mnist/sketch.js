@@ -1,14 +1,11 @@
 let mnist;
 
-
 let train_index = 0;
 
 // testing variables
 let test_index = 0;
 let total_tests = 0;
 let total_correct = 0;
-
-
 
 let nn;
 let train_image;
@@ -101,17 +98,12 @@ function testing() {
     total_tests = 0;
     total_correct = 0;
   }
-
-
-
-
-
 }
 
 
 function guessUserDigit() {
   let img = user_digit.get();
-  if(!user_has_drawing) {
+  if (!user_has_drawing) {
     user_guess_ele.html('_');
     return img;
   }
@@ -178,5 +170,4 @@ function findMax(arr) {
     }
   }
   return index;
-
 }
