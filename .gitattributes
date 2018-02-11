@@ -1,0 +1,12 @@
+* text=auto
+*.js text
+*.html text
+*.css text
+*.txt text
+*.json text
+*.md text
+*.yml text
+
+#MNIST data
+*idx3-ubyte binary
+*idx1-ubyte binary

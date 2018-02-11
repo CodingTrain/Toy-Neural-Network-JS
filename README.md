@@ -7,18 +7,21 @@ Neural Network JavaScript library for Coding Train tutorials
 * [x] Redo gradient descent video about
 * [x] Delta weight formulas, connect to "mathematics of gradient" video
 * [x] Implement gradient descent in library / with code
-* [ ] XOR coding challenge
-* [ ] MNIST coding challenge
+* [x] XOR coding challenge
+* [x] MNIST coding challenge
+* [ ] Support for saving / restoring network (see #50)
+* [ ] Support for different activation functions (see #45)
+* [ ] softmax activation, cross-entropy
+* [ ] Support for neuro-evolution
+    * [ ] play flappy bird (many players at once). 
+    * [ ] play pong (many game simulations at once)
+    * [ ] steering sensors (a la Jabril's forrest project!)
 * [ ] Support for multiple hidden layers
-* [ ] Support for different activation functions
 * [ ] Combine with ml5 / deeplearnjs
-* [ ] Coding Challenge: the "Hello World" of NN - handwritten number recognition
 
 ## Getting Started
 
 If you're looking for the original source code to match the videos [visit this repo](https://github.com/CodingTrain/Rainbow-Code/tree/master/Courses/natureofcode/10.18-toy_neural_network)
-
-TODO
 
 ### Prerequisites
 
