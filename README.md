@@ -13,15 +13,18 @@ Here are some demos running directly in the browser:
 * [x] Delta weight formulas, connect to "mathematics of gradient" video
 * [x] Implement gradient descent in library / with code
 * [x] XOR coding challenge [live example](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
-* [x] MNIST coding challenge [live example](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
+* [ ] MNIST coding challenge [live example](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
+    * redo this challenge
+    * cover softmax activation, cross-entropy
+    * graph cost function?
+    * only use testing data
 * [ ] Support for saving / restoring network (see #50)
 * [ ] Support for different activation functions (see #45)
-* [ ] softmax activation, cross-entropy
+* [ ] Support for multiple hidden layers (see #61)
 * [ ] Support for neuro-evolution
     * [ ] play flappy bird (many players at once). 
     * [ ] play pong (many game simulations at once)
     * [ ] steering sensors (a la Jabril's forrest project!)
-* [ ] Support for multiple hidden layers
 * [ ] Combine with ml5 / deeplearnjs
 
 ## Getting Started
