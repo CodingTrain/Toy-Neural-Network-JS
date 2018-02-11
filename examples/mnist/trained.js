@@ -69,7 +69,7 @@ function guessUserDigit() {
   img.resize(28, 28);
   img.loadPixels();
   for (let i = 0; i < 784; i++) {
-    inputs[i] = img.pixels[i * 4];
+    inputs[i] = img.pixels[i * 4] / 255;
   }
   let prediction = nn.predict(inputs);
   let guess = findMax(prediction);
