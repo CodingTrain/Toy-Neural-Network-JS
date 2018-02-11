@@ -49,7 +49,7 @@ This Project doesn't require any additional Installing steps
 
 #### Code linting
 
-This project try to follow Airbnb coding style. Make sure you set-up your code editor to be able to follow the guidelines. In [this link](https://medium.freecodecamp.org/how-to-set-up-eslint-in-atom-to-contribute-to-freecodecamp-3467dee86e2c), you will find a tutorial on how to set-up eslint on Atom.
+This project try to follow [Airbnb coding style](https://github.com/airbnb/javascript). Make sure you set-up your code editor to be able to follow the guidelines. In [this link](https://medium.freecodecamp.org/how-to-set-up-eslint-in-atom-to-contribute-to-freecodecamp-3467dee86e2c), you will find a tutorial on how to set-up eslint on Atom.
 
 ### Documentation
 
