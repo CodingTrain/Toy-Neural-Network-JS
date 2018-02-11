@@ -68,3 +68,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **shiffman** - *Initial work* - [shiffman](https://github.com/shiffman)
 
 See also the list of [contributors](https://github.com/CodingTrain/Toy-Neural-Network-JS/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the terms of the MIT license, see LICENSE.
