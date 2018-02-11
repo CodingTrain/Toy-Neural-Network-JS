@@ -22,7 +22,7 @@ Here are some demos running directly in the browser:
 * [ ] Support for different activation functions (see #45, #62)
 * [ ] Support for multiple hidden layers (see #61)
 * [ ] Support for neuro-evolution
-    * [ ] play flappy bird (many players at once). 
+    * [ ] play flappy bird (many players at once).
     * [ ] play pong (many game simulations at once)
     * [ ] steering sensors (a la Jabril's forrest project!)
 * [ ] Combine with ml5 / deeplearnjs
@@ -46,6 +46,10 @@ npm install
 ### Installing
 
 This Project doesn't require any additional Installing steps
+
+#### Code linting
+
+This project try to follow Airbnb coding style. Make sure you set-up your code editor to be able to follow the guidelines. In [this link](https://medium.freecodecamp.org/how-to-set-up-eslint-in-atom-to-contribute-to-freecodecamp-3467dee86e2c), you will find a tutorial on how to set-up eslint on Atom.
 
 ### Documentation
 
