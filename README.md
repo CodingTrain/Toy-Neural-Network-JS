@@ -4,8 +4,8 @@ Neural Network JavaScript library for Coding Train tutorials
 
 ## Examples / Demos
 Here are some demos running directly in the browser:
-[XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
-[Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
+* [XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
+* [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
 
 ## To-Do List
 
