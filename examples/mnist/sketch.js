@@ -162,7 +162,7 @@ function draw() {
   if (mouseIsPressed) {
     user_has_drawing = true;
     user_digit.stroke(255);
-    user_digit.strokeWeight(16);
+    user_digit.strokeWeight(8);
     user_digit.line(mouseX, mouseY, pmouseX, pmouseY);
   }
 
