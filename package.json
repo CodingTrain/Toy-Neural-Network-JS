@@ -4,7 +4,8 @@
   "description": "Toy Neural Network JavaScript library for Coding Train tutorials",
   "main": "",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "repository": {
     "type": "git",
