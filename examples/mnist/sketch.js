@@ -92,7 +92,6 @@ function testing() {
   let percent = 100 * (total_correct / total_tests);
   percent_ele.html(nf(percent, 2, 2) + '%');
 
-
   test_index++;
   if (test_index == mnist.test_labels.length) {
     test_index = 0;
@@ -102,12 +101,7 @@ function testing() {
     total_correct = 0;
   }
 
-
-
-
-
 }
-
 
 function guessUserDigit() {
   let img = user_digit.get();
@@ -127,13 +121,11 @@ function guessUserDigit() {
   return img;
 }
 
-
 function draw() {
   background(0);
 
   let user = guessUserDigit();
   //image(user, 0, 0);
-
 
   if (mnist) {
     let total1 = 5;
@@ -166,8 +158,6 @@ function keyPressed() {
   }
 }
 
-
-
 function findMax(arr) {
   let record = 0;
   let index = 0;
@@ -178,5 +168,4 @@ function findMax(arr) {
     }
   }
   return index;
-
 }
