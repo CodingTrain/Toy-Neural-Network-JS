@@ -19,7 +19,7 @@ let user_has_drawing = false;
 let user_guess_ele;
 let percent_ele;
 
-function setup() {
+setup = () {
   createCanvas(400, 200).parent('container');
   nn = new NeuralNetwork(784, 64, 10);
   user_digit = createGraphics(200, 200);
@@ -30,13 +30,13 @@ function setup() {
   user_guess_ele = select('#user_guess');
   percent_ele = select('#percent');
 
-  loadMNIST(function(data) {
+  loadMNIST((data) {
     mnist = data;
     console.log(mnist);
   });
 }
 
-function train(show) {
+train = (show) {
   let inputs = [];
   if (show) {
     train_image.loadPixels();
@@ -74,7 +74,7 @@ function train(show) {
   train_index = (train_index + 1) % mnist.train_labels.length;
 }
 
-function testing() {
+testing = () {
   let inputs = [];
   for (let i = 0; i < 784; i++) {
     let bright = mnist.test_images[test_index][i];
@@ -109,7 +109,7 @@ function testing() {
 }
 
 
-function guessUserDigit() {
+guessUserDigit = () {
   let img = user_digit.get();
   if(!user_has_drawing) {
     user_guess_ele.html('_');
@@ -128,7 +128,7 @@ function guessUserDigit() {
 }
 
 
-function draw() {
+draw = () {
   background(0);
 
   let user = guessUserDigit();
@@ -159,7 +159,7 @@ function draw() {
   }
 }
 
-function keyPressed() {
+keyPressed = () {
   if (key == ' ') {
     user_has_drawing = false;
     user_digit.background(0);
@@ -168,7 +168,7 @@ function keyPressed() {
 
 
 
-function findMax(arr) {
+findMax = (arr) {
   let record = 0;
   let index = 0;
   for (let i = 0; i < arr.length; i++) {
