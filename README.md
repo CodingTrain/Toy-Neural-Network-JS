@@ -43,6 +43,10 @@ You need to have the following installed:
 npm install
 ```
 
+Or:
+
+1. Python 2.7
+
 ### Installing
 
 This Project doesn't require any additional Installing steps
@@ -51,7 +55,11 @@ This Project doesn't require any additional Installing steps
 
 * `NeuralNetwork` - The neural network class
   * `predict(input_array)` - Returns the output of a neural network
+  * `setLearningRate(learning_rate = 0.01)` - Sets the learning rate of a neuronal network
+  * `setActivationFunction(func = sigmoid)` - Sets the activation function of a neuronal network
   * `train(input_array, target_array)` - Trains a neural network
+  * `serialize()` - Returns data of a neuronal network in `JSON`
+  * `deserialize(data)` - Sets data of a neuronal network in `JSON`
 
 ## Running the tests
 
