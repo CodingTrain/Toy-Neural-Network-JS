@@ -7,6 +7,9 @@ Here are some demos running directly in the browser:
 * [XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
 * [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
 
+Or these examples can be executed on your computer with python (See prerequisites and installation):
+* [XOR problem]()
+
 ## To-Do List
 
 * [x] Redo gradient descent video about
@@ -43,7 +46,7 @@ You need to have the following installed:
 npm install
 ```
 
-Or:
+For Python:
 
 1. Python 2.7
 
