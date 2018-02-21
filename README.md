@@ -8,7 +8,7 @@ Here are some demos running directly in the browser:
 * [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
 
 Or these examples can be executed on your computer with python (See prerequisites and installation):
-* [XOR problem]()
+* [XOR problem in Python](https://github.com/000alen/Toy-Neural-Network-JS/blob/master/python/examples/xor.py)
 
 ## To-Do List
 
@@ -52,7 +52,9 @@ For Python:
 
 ### Installing
 
-This Project doesn't require any additional Installing steps
+For Javascript, this Project doesn't require any additional Installing steps
+
+For Python, you just have to put the [file]() in the root of your Project
 
 ### Documentation
 
