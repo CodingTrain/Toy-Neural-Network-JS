@@ -3,6 +3,7 @@
 
 from json import loads, dumps
 from math import exp, tanh as mTanh
+from random import uniform
 
 
 def Array(rows, fill=None):
