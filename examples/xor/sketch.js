@@ -23,18 +23,25 @@ function setup() {
   createCanvas(400, 400);
   nn = new NeuralNetwork(2, 4, 1);
   lr_slider = createSlider(0.01, 0.5, 0.1, 0.01);
-
 }
+
+let testing = 0;
 
 function draw() {
   background(0);
+  // noLoop();
 
-  for (let i = 0; i < 10; i++) {
+  // if (frameCount > 100) {
+  //   console.log('done');
+  //   noLoop();
+  // }
+
+  for (let i = 0; i < 1; i++) {
     let data = random(training_data);
     nn.train(data.inputs, data.outputs);
   }
 
-  nn.setLearningRate(lr_slider.value());
+  //nn.setLearningRate(lr_slider.value());
 
   let resolution = 10;
   let cols = width / resolution;
