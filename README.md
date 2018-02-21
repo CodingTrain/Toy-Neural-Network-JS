@@ -54,7 +54,7 @@ For Python:
 
 For Javascript, this Project doesn't require any additional Installing steps
 
-For Python, you just have to put the [file]() in the root of your Project
+For Python, you just have to put the [file](https://github.com/000alen/Toy-Neural-Network-JS/blob/master/python/nn.py) in the root of your Project
 
 ### Documentation
 
