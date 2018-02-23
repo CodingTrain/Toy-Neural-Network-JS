@@ -21,7 +21,7 @@ let percent_ele;
 
 function setup() {
   createCanvas(400, 200).parent('container');
-  nn = new NeuralNetwork(784, 64, 10);
+  nn = new NeuralNetwork(3, [784, 64, 10]);
   user_digit = createGraphics(200, 200);
   user_digit.pixelDensity(1);
 
