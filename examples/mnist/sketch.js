@@ -20,7 +20,7 @@ let user_guess_ele;
 let percent_ele;
 
 function setup() {
-  createCanvas(400, 200).parent('container');
+  createCanvas(800, 2400).parent('container');
   nn = new NeuralNetwork(784, 64, 10);
   user_digit = createGraphics(200, 200);
   user_digit.pixelDensity(1);
@@ -131,6 +131,8 @@ function guessUserDigit() {
 function draw() {
   background(0);
 
+
+  nn.render(20,420);
   let user = guessUserDigit();
   //image(user, 0, 0);
 
