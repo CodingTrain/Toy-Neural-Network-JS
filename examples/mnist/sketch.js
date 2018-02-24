@@ -132,7 +132,7 @@ function draw() {
   background(0);
 
 
-  nn.render(20,420);
+  nn.render(20,420,5,100,200);
   let user = guessUserDigit();
   //image(user, 0, 0);
 

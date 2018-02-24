@@ -53,6 +53,6 @@ function draw() {
     }
   }
 
-nn.render(20,400);
+nn.render(20,400,50,20,20);
 
 }
