@@ -20,7 +20,7 @@ Here are some demos running directly in the browser:
     * only use testing data
 * [ ] Support for saving / restoring network (see [#50](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/50))
 * [ ] Support for different activation functions (see [#45](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/45), [#62](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/62))
-* [ ] Support for multiple hidden layers (see #61)
+* [ ] Support for multiple hidden layers (see [#61](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/61))
 * [ ] Support for neuro-evolution
     * [ ] play flappy bird (many players at once). 
     * [ ] play pong (many game simulations at once)
