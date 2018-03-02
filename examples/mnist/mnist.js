@@ -33,7 +33,7 @@ async function loadFile(file) {
 
   let data = new Uint8Array(buffer, headerCount * 4);
   if(type == 'image') {
-    dataArr = [];
+    let dataArr = [];
     for(let i = 0; i < headers[1]; i++) {
       dataArr.push(data.subarray(dataLength * i, dataLength * (i + 1)));
     }
