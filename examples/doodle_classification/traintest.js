@@ -24,7 +24,7 @@ function testAll(testing) {
     let inputs = testing[i];
     // Normalisation have been done is dataprep.js
     // let inputs = Array.from(data).map(x => x / 255);
-    // let label = testing[i].label;
+    let label = testing[i].label;
     let guess = nn.predict(inputs);
 
     let m = max(guess);
