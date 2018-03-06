@@ -3,8 +3,9 @@ function trainEpoch(training) {
   //console.log(training);
   // Train for one epoch
   for (let i = 0; i < training.length; i++) {
-    let data = training[i];
-    let inputs = Array.from(data).map(x => x / 255);
+    let inputs = training[i]
+    // let data = training[i];
+    // let inputs = Array.from(data).map(x => x / 255);
     let label = training[i].label;
     let targets = [0, 0, 0];
     targets[label] = 1;
@@ -20,9 +21,10 @@ function testAll(testing) {
   // Train for one epoch
   for (let i = 0; i < testing.length; i++) {
     // for (let i = 0; i < 1; i++) {
-    let data = testing[i];
-    let inputs = Array.from(data).map(x => x / 255);
-    let label = testing[i].label;
+    let inputs = testing[i];
+    // Normalisation have been done is dataprep.js
+    // let inputs = Array.from(data).map(x => x / 255);
+    // let label = testing[i].label;
     let guess = nn.predict(inputs);
 
     let m = max(guess);
