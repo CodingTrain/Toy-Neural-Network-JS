@@ -18,9 +18,11 @@ let training_data = [{
     outputs: [0]
   }
 ];
-
+var xorW = 400;
+var xorH = 400;
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 800);
+
   nn = new NeuralNetwork(2, 4, 1);
   lr_slider = createSlider(0.01, 0.5, 0.1, 0.01);
 
@@ -37,8 +39,8 @@ function draw() {
   nn.setLearningRate(lr_slider.value());
 
   let resolution = 10;
-  let cols = width / resolution;
-  let rows = height / resolution;
+  let cols = xorW / resolution;
+  let rows = xorH / resolution;
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x1 = i / cols;
@@ -51,6 +53,6 @@ function draw() {
     }
   }
 
-
+nn.render(20,400,50,20,20);
 
 }
