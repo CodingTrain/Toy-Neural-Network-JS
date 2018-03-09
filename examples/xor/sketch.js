@@ -21,7 +21,7 @@ let training_data = [{
 
 function setup() {
   createCanvas(400, 400);
-  nn = new NeuralNetwork(2, 4, 1);
+  nn = new NeuralNetwork(3, [2, 4, 1]);
   lr_slider = createSlider(0.01, 0.5, 0.1, 0.01);
 
 }
