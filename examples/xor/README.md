@@ -1,6 +1,3 @@
 ## Variations:
 
-I literally copied this code from the video,
-but then, I added a little bit more. Here is
-the project that I made: 
-* [NN XOR](https://codemehtm.github.io/nn)
+* [NN XOR](https://codemehtm.github.io/nn) by cdeMtHtm - "I literally copied this from the video, but then, I added a little bit more."
