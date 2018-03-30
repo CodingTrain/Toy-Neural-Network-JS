@@ -31,8 +31,8 @@ function setup() {
   prepareData(rainbows, rainbowsData, RAINBOW);
   prepareData(trains, trainsData, TRAIN);
 
-  // Making the neural network
-  nn = new NeuralNetwork(784, 64, 3);
+  // Making the neural network (multi-hidden layers)
+  nn = new NeuralNetwork(784, 256, 64, 3);
 
   // Randomizing the data
   let training = [];
