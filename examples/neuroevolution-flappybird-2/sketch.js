@@ -58,7 +58,7 @@ function preload() {
 
 function setup() {
 
-  let canvas = createCanvas(600, 600);
+  let canvas = createCanvas(600, 400);
   canvas.parent('canvascontainer');
 
   // Access the interface elements
