@@ -6,6 +6,7 @@ Neural Network JavaScript library for Coding Train tutorials
 Here are some demos running directly in the browser:
 * [XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
 * [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
+* [Multiple hidden layers](https://maksuel.github.io/Toy-Neural-Network-JS/examples/doodle_classification/)
 
 ## To-Do List
 
@@ -20,7 +21,7 @@ Here are some demos running directly in the browser:
     * only use testing data
 * [ ] Support for saving / restoring network (see [#50](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/50))
 * [ ] Support for different activation functions (see [#45](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/45), [#62](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/62))
-* [ ] Support for multiple hidden layers (see [#61](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/61))
+* [x] Support for multiple hidden layers (see [#107](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/107))
 * [ ] Support for neuro-evolution
     * [ ] play flappy bird (many players at once). 
     * [ ] play pong (many game simulations at once)
