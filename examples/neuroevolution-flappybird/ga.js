@@ -1,7 +1,10 @@
 // Daniel Shiffman
+// Nature of Code: Intelligence and Learning
+// https://github.com/shiffman/NOC-S17-2-Intelligence-Learning
 
 // This flappy bird implementation is adapted from:
 // https://youtu.be/cXgA1d_E-jY&
+
 
 // This file includes functions for creating a new generation
 // of birds.
@@ -9,6 +12,10 @@
 // Start the game over
 function resetGame() {
   counter = 0;
+  // Resetting best bird score to 0
+  if (bestBird) {
+    bestBird.score = 0;
+  }
   pipes = [];
 }
 
@@ -25,10 +32,10 @@ function nextGeneration() {
 
 // Generate a new population of birds
 function generate(oldBirds) {
-  var newBirds = [];
-  for (var i = 0; i < oldBirds.length; i++) {
+  let newBirds = [];
+  for (let i = 0; i < oldBirds.length; i++) {
     // Select a bird based on fitness
-    var bird = poolSelection(oldBirds);
+    let bird = poolSelection(oldBirds);
     newBirds[i] = bird;
   }
   return newBirds;
@@ -37,20 +44,19 @@ function generate(oldBirds) {
 // Normalize the fitness of all birds
 function normalizeFitness(birds) {
   // Make score exponentially better?
-  for (var i = 0; i < birds.length; i++) {
+  for (let i = 0; i < birds.length; i++) {
     birds[i].score = pow(birds[i].score, 2);
   }
 
   // Add up all the scores
-  var sum = 0;
-  for (var i = 0; i < birds.length; i++) {
+  let sum = 0;
+  for (let i = 0; i < birds.length; i++) {
     sum += birds[i].score;
   }
   // Divide by the sum
-  for (var i = 0; i < birds.length; i++) {
+  for (let i = 0; i < birds.length; i++) {
     birds[i].fitness = birds[i].score / sum;
   }
-  console.log(birds);
 }
 
 
@@ -58,10 +64,10 @@ function normalizeFitness(birds) {
 // based on fitness
 function poolSelection(birds) {
   // Start at 0
-  var index = 0;
+  let index = 0;
 
   // Pick a random number between 0 and 1
-  var r = random(1);
+  let r = random(1);
 
   // Keep subtracting probabilities until you get less than zero
   // Higher probabilities will be more likely to be fixed since they will

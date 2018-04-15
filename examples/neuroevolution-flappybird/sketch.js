@@ -1,36 +1,36 @@
 // Daniel Shiffman
 // Nature of Code: Intelligence and Learning
-// https://github.com/shiffman/NOC-S17-2-Intelligence-Learning
+// https://github.com/shiffman/NOC-S18
 
 // This flappy bird implementation is adapted from:
 // https://youtu.be/cXgA1d_E-jY&
 
 // How big is the population
-var totalPopulation = 250;
+let totalPopulation = 500;
 // All active birds (not yet collided with pipe)
-var activeBirds = [];
+let activeBirds = [];
 // All birds for any given population
-var allBirds = [];
+let allBirds = [];
 // Pipes
-var pipes = [];
+let pipes = [];
 // A frame counter to determine when to add a pipe
-var counter = 0;
+let counter = 0;
 
 // Interface elements
-var speedSlider;
-var speedSpan;
-var highScoreSpan;
-var allTimeHighScoreSpan;
+let speedSlider;
+let speedSpan;
+let highScoreSpan;
+let allTimeHighScoreSpan;
 
 // All time high score
-var highScore = 0;
+let highScore = 0;
 
 // Training or just showing the current best
-var runBest = false;
-var runBestButton;
+let runBest = false;
+let runBestButton;
 
 function setup() {
-  var canvas = createCanvas(600, 400);
+  let canvas = createCanvas(600, 400);
   canvas.parent('canvascontainer');
 
   // Access the interface elements
@@ -42,8 +42,8 @@ function setup() {
   runBestButton.mousePressed(toggleState);
 
   // Create a population
-  for (var i = 0; i < totalPopulation; i++) {
-    var bird = new Bird();
+  for (let i = 0; i < totalPopulation; i++) {
+    let bird = new Bird();
     activeBirds[i] = bird;
     allBirds[i] = bird;
   }
@@ -55,7 +55,6 @@ function toggleState() {
   // Show the best bird
   if (runBest) {
     resetGame();
-    bestBird.score = 0;
     runBestButton.html('continue training');
     // Go train some more
   } else {
@@ -70,14 +69,14 @@ function draw() {
   background(0);
 
   // Should we speed up cycles per frame
-  var cycles = speedSlider.value();
+  let cycles = speedSlider.value();
   speedSpan.html(cycles);
 
 
   // How many times to advance the game
-  for (var n = 0; n < cycles; n++) {
+  for (let n = 0; n < cycles; n++) {
     // Show all the pipes
-    for (var i = pipes.length - 1; i >= 0; i--) {
+    for (let i = pipes.length - 1; i >= 0; i--) {
       pipes[i].update();
       if (pipes[i].offscreen()) {
         pipes.splice(i, 1);
@@ -87,22 +86,27 @@ function draw() {
     if (runBest) {
       bestBird.think(pipes);
       bestBird.update();
-      for (var j = 0; j < pipes.length; j++) {
+      for (let j = 0; j < pipes.length; j++) {
         // Start over, bird hit pipe
         if (pipes[j].hits(bestBird)) {
           resetGame();
           break;
         }
       }
-    // Or are we running all the active birds
+
+      if (bestBird.bottomTop()) {
+        resetGame();
+      }
+      // Or are we running all the active birds
     } else {
-      for (var i = activeBirds.length - 1; i >= 0; i--) {
-        var bird = activeBirds[i];
+      for (let i = activeBirds.length - 1; i >= 0; i--) {
+        let bird = activeBirds[i];
         // Bird uses its brain!
         bird.think(pipes);
         bird.update();
+
         // Check all the pipes
-        for (var j = 0; j < pipes.length; j++) {
+        for (let j = 0; j < pipes.length; j++) {
           // It's hit a pipe
           if (pipes[j].hits(activeBirds[i])) {
             // Remove this bird
@@ -110,6 +114,11 @@ function draw() {
             break;
           }
         }
+
+        if (bird.bottomTop()) {
+          activeBirds.splice(i, 1);
+        }
+
       }
     }
 
@@ -121,13 +130,13 @@ function draw() {
   }
 
   // What is highest score of the current population
-  var tempHighScore = 0;
+  let tempHighScore = 0;
   // If we're training
   if (!runBest) {
     // Which is the best bird?
-    var tempBestBird = null;
-    for (var i = 0; i < activeBirds.length; i++) {
-      var s = activeBirds[i].score;
+    let tempBestBird = null;
+    for (let i = 0; i < activeBirds.length; i++) {
+      let s = activeBirds[i].score;
       if (s > tempHighScore) {
         tempHighScore = s;
         tempBestBird = activeBirds[i];
@@ -152,14 +161,14 @@ function draw() {
   allTimeHighScoreSpan.html(highScore);
 
   // Draw everything!
-  for (var i = 0; i < pipes.length; i++) {
+  for (let i = 0; i < pipes.length; i++) {
     pipes[i].show();
   }
 
   if (runBest) {
     bestBird.show();
   } else {
-    for (var i = 0; i < activeBirds.length; i++) {
+    for (let i = 0; i < activeBirds.length; i++) {
       activeBirds[i].show();
     }
     // If we're out of birds go to the next generation

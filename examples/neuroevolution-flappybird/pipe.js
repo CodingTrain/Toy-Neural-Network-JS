@@ -5,25 +5,27 @@
 // This flappy bird implementation is adapted from:
 // https://youtu.be/cXgA1d_E-jY&
 
-function Pipe() {
+class Pipe {
+  constructor() {
 
-  // How big is the empty space
-  var spacing = random(80, height / 2);
-  // Where is th center of the empty space
-  var centery = random(spacing, height - spacing);
+    // How big is the empty space
+    let spacing = 125;
+    // Where is th center of the empty space
+    let centery = random(spacing, height - spacing);
 
-  // Top and bottom of pipe
-  this.top = centery - spacing / 2;
-  this.bottom = height - (centery + spacing / 2);
-  // Starts at the edge
-  this.x = width;
-  // Width of pipe
-  this.w = 50;
-  // How fast
-  this.speed = 4;
+    // Top and bottom of pipe
+    this.top = centery - spacing / 2;
+    this.bottom = height - (centery + spacing / 2);
+    // Starts at the edge
+    this.x = width;
+    // Width of pipe
+    this.w = 80;
+    // How fast
+    this.speed = 6;
+  }
 
   // Did this pipe hit a bird?
-  this.hits = function(bird) {
+  hits(bird) {
     if ((bird.y - bird.r) < this.top || (bird.y + bird.r) > (height - this.bottom)) {
       if (bird.x > this.x && bird.x < this.x + this.w) {
         return true;
@@ -33,7 +35,7 @@ function Pipe() {
   }
 
   // Draw the pipe
-  this.show = function() {
+  show() {
     stroke(255);
     fill(200);
     rect(this.x, 0, this.w, this.top);
@@ -41,12 +43,12 @@ function Pipe() {
   }
 
   // Update the pipe
-  this.update = function() {
+  update() {
     this.x -= this.speed;
   }
 
   // Has it moved offscreen?
-  this.offscreen = function() {
+  offscreen() {
     if (this.x < -this.w) {
       return true;
     } else {
