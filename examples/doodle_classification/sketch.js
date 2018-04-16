@@ -15,6 +15,8 @@ let rainbows = {};
 
 let nn;
 
+let visualization;
+
 function preload() {
   catsData = loadBytes('data/cats1000.bin');
   trainsData = loadBytes('data/trains1000.bin');
@@ -95,6 +97,8 @@ function setup() {
   //   let percent = testAll(testing);
   //   console.log("% Correct: " + percent);
   // }
+
+  visualization = new Visualization(nn);
 }
 
 
