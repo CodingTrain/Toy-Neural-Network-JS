@@ -222,6 +222,8 @@ class Vehicle {
   // Add force to acceleration
   applyForce(force) {
     this.acceleration.add(force);
+    // It takes up some health/energy to change inertia
+    this.health -= force.magSq();
   }
 
   display() {
