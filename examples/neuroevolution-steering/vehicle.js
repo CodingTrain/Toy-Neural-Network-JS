@@ -39,8 +39,6 @@ class Vehicle {
     this.r = 4;
     this.maxforce = 0.1;
     this.maxspeed = 4;
-    this.minspeed = 0.25;
-    this.maxhealth = 3;
 
     // This indicates how well it is doing
     this.score = 0;
@@ -64,8 +62,8 @@ class Vehicle {
       this.brain = new NeuralNetwork(inputs, 32, 2);
     }
 
-    // Health keeps vehicl alive
-    this.health = 1;
+    // Health keeps vehicle alive
+    this.health = 5;
   }
 
 
@@ -75,17 +73,12 @@ class Vehicle {
     this.velocity.add(this.acceleration);
     // Limit speed to max
     this.velocity.limit(this.maxspeed);
-    // Keep speed at a minimum
-    if (this.velocity.mag() < this.minspeed) {
-      this.velocity.setMag(this.minspeed);
-    }
     // Update position
     this.position.add(this.velocity);
     // Reset acceleration to 0 each cycle
     this.acceleration.mult(0);
 
     // Decrease health
-    this.health = constrain(this.health, 0, this.maxhealth);
     this.health -= 0.005;
     // Increase score
     this.score += 1;
@@ -131,7 +124,7 @@ class Vehicle {
         continue;
       }
 
-      // What is vector pointint to food
+      // What is vector pointing to the food
       let toFood = p5.Vector.sub(otherPosition, this.position);
 
       // Check all the sensors
@@ -181,7 +174,7 @@ class Vehicle {
       if (d < foodRadius) {
         list.splice(i, 1);
         // Add health when it eats food
-        this.health++;
+        this.health += 2;
       }
     }
   }
@@ -215,7 +208,7 @@ class Vehicle {
       // Display score next to each vehicle
       noStroke();
       fill(255, 200);
-      text(int(this.score), 10, 0);
+      text(this.health.toFixed(2), 10, 0);
     }
     // Draw a triangle rotated in the direction of velocity
     let theta = this.velocity.heading() + PI / 2;
