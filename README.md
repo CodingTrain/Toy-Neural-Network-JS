@@ -68,6 +68,15 @@ The Tests can either be checked via the automaticly running CircleCI Tests or yo
 
 Please send PullRequests. These need to pass a automated Test first and after it will get reviewed and on that review either denied or accepted.
 
+## Libraries built by the community
+
+Here are some libraries with the same or similar functionality to this one built by the community:
+
+- [Java Neural Network Library](https://github.com/kim-marcel/basic_neural_network) by [kim-marcel](https://github.com/kim-marcel)
+- [Python Neural Network Library](https://github.com/Gabriel-Teston/Machine-Learning) by [Gabriel-Teston](https://github.com/Gabriel-Teston)
+
+Feel free to add your own libraries.
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/CodingTrain/Toy-Neural-Network-JS/tags).
