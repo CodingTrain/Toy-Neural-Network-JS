@@ -20,13 +20,13 @@ let speedSpan;
 // How big is the food?
 let foodRadius = 8;
 // How much food should there?
-let foodAmount = 25;
+let foodAmount = 50;
 // Don't put food near the edge
-let foodBuffer = 50;
+let foodBuffer = 5;
 
 
 // How many sensors does each vehicle have?
-let totalSensors = 8;
+let totalSensors = 12;
 // How far can each vehicle see?
 let sensorLength = 150;
 // What's the angle in between sensors

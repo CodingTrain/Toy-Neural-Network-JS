@@ -39,16 +39,20 @@ class Vehicle {
     this.r = 4;
     this.maxforce = 0.1;
     this.maxspeed = 4;
-    this.minspeed = 0.25;
-    this.maxhealth = 3;
 
     // This indicates how well it is doing
     this.score = 0;
 
-    // Create an array of sensors
-    this.sensors = [];
+    // Create an array of food sensors
+    this.foodSensors = [];
     for (let angle = 0; angle < TWO_PI; angle += sensorAngle) {
-      this.sensors.push(new Sensor(angle));
+      this.foodSensors.push(new Sensor(angle));
+    }
+
+    // Create an array of wall sensors
+    this.wallSensors = [];
+    for (let angle = 0; angle < TWO_PI; angle += sensorAngle) {
+      this.wallSensors.push(new Sensor(angle));
     }
 
     // If a brain is passed via constructor copy it
@@ -57,15 +61,15 @@ class Vehicle {
       this.brain.mutate(mutate);
       // Otherwise make a new brain
     } else {
-      // inputs are all the sensors plus position and velocity info
-      let inputs = this.sensors.length + 6;
+      // inputs are all the sensors plus velocity vector components
+      let inputs = 2 + this.foodSensors.length + this.wallSensors.length;
       // Arbitrary hidden layer
       // 2 outputs for x and y desired velocity
       this.brain = new NeuralNetwork(inputs, 32, 2);
     }
 
-    // Health keeps vehicl alive
-    this.health = 1;
+    // Health keeps vehicle alive
+    this.health = 5;
   }
 
 
@@ -75,17 +79,12 @@ class Vehicle {
     this.velocity.add(this.acceleration);
     // Limit speed to max
     this.velocity.limit(this.maxspeed);
-    // Keep speed at a minimum
-    if (this.velocity.mag() < this.minspeed) {
-      this.velocity.setMag(this.minspeed);
-    }
     // Update position
     this.position.add(this.velocity);
     // Reset acceleration to 0 each cycle
     this.acceleration.mult(0);
 
     // Decrease health
-    this.health = constrain(this.health, 0, this.maxhealth);
     this.health -= 0.005;
     // Increase score
     this.score += 1;
@@ -116,9 +115,13 @@ class Vehicle {
   // Function to calculate all sensor readings
   // And predict a "desired velocity"
   think(food) {
-    // All sensors start with maximum length
-    for (let j = 0; j < this.sensors.length; j++) {
-      this.sensors[j].val = sensorLength;
+    // All food sensors start with maximum length
+    for (let j = 0; j < this.foodSensors.length; j++) {
+      this.foodSensors[j].val = sensorLength;
+    }
+    // All wall sensors start with maximum length
+    for (let j = 0; j < this.wallSensors.length; j++) {
+      this.wallSensors[j].val = sensorLength;
     }
 
     for (let i = 0; i < food.length; i++) {
@@ -131,33 +134,63 @@ class Vehicle {
         continue;
       }
 
-      // What is vector pointint to food
+      // What is vector pointing to the food
       let toFood = p5.Vector.sub(otherPosition, this.position);
 
       // Check all the sensors
-      for (let j = 0; j < this.sensors.length; j++) {
+      for (let j = 0; j < this.foodSensors.length; j++) {
         // If the relative angle of the food is in between the range
-        let delta = this.sensors[j].dir.angleBetween(toFood);
+        let delta = this.foodSensors[j].dir.angleBetween(toFood);
         if (delta < sensorAngle / 2) {
           // Sensor value is the closest food
-          this.sensors[j].val = min(this.sensors[j].val, dist);
+          this.foodSensors[j].val = min(this.foodSensors[j].val, dist);
+        }
+      }
+    }
+
+    // Find the four wall points relative to the vehicle
+    let nearbyWalls = [
+      createVector(this.position.x, 0),
+      createVector(this.position.x, height),
+      createVector(0, this.position.y),
+      createVector(width, this.position.y)
+    ];
+    // Update the wall sensors
+    for (let i = 0; i < nearbyWalls.length; i++) {
+      // Where is the wall?
+      let wallPoint = nearbyWalls[i];
+      // How far away?
+      let dist = p5.Vector.dist(this.position, wallPoint);
+      // Skip if it's too far away
+      if (dist > sensorLength) {
+        continue;
+      }
+
+      // What is vector pointing to the wall?
+      let toWall = p5.Vector.sub(wallPoint, this.position);
+
+      for (let j = 0; j < this.wallSensors.length; j++) {
+        // If the relative angle of the wall is in between the range
+        let delta = this.wallSensors[j].dir.angleBetween(toWall);
+        if (delta < sensorAngle / 2) {
+          // Sensor value is the closest wall point
+          this.wallSensors[j].val = min(this.wallSensors[j].val, dist);
         }
       }
     }
 
     // Create inputs
     let inputs = [];
-    // This is goofy but these 4 inputs are mapped to distance from edges
-    inputs[0] = constrain(map(this.position.x, foodBuffer, 0, 0, 1), 0, 1);
-    inputs[1] = constrain(map(this.position.y, foodBuffer, 0, 0, 1), 0, 1);
-    inputs[2] = constrain(map(this.position.x, width - foodBuffer, width, 0, 1), 0, 1);
-    inputs[3] = constrain(map(this.position.y, height - foodBuffer, height, 0, 1), 0, 1);
-    // These inputs are the current velocity vector
-    inputs[4] = this.velocity.x / this.maxspeed;
-    inputs[5] = this.velocity.y / this.maxspeed;
-    // All the sensor readings
-    for (let j = 0; j < this.sensors.length; j++) {
-      inputs[j + 6] = map(this.sensors[j].val, 0, sensorLength, 1, 0);
+    // The velocity vector components
+    inputs.push(map(this.velocity.x, 0, this.maxspeed, 0, 1));
+    inputs.push(map(this.velocity.y, 0, this.maxspeed, 0, 1));
+    // The food sensor readings
+    for (let i = 0; i < this.foodSensors.length; i++) {
+      inputs.push(map(this.foodSensors[i].val, 0, sensorLength, 1, 0));
+    }
+    // The wall sensor readings
+    for (let i = 0; i < this.wallSensors.length; i++) {
+      inputs.push(map(this.wallSensors[i].val, 0, sensorLength, 1, 0));
     }
 
     // Get two outputs
@@ -181,7 +214,7 @@ class Vehicle {
       if (d < foodRadius) {
         list.splice(i, 1);
         // Add health when it eats food
-        this.health++;
+        this.health += 2;
       }
     }
   }
@@ -189,6 +222,8 @@ class Vehicle {
   // Add force to acceleration
   applyForce(force) {
     this.acceleration.add(force);
+    // It takes up some health/energy to change inertia
+    this.health -= force.magSq();
   }
 
   display() {
@@ -201,21 +236,32 @@ class Vehicle {
     // Translate to vehicle position
     translate(this.position.x, this.position.y);
 
-    // Draw lines for all the activated sensors
     if (debug.checked()) {
-      for (let i = 0; i < this.sensors.length; i++) {
-        let val = this.sensors[i].val;
+      // Draw lines for all the activated food sensors
+      for (let i = 0; i < this.foodSensors.length; i++) {
+        let val = this.foodSensors[i].val;
         if (val > 0) {
-          stroke(col);
+          stroke(green);
           strokeWeight(map(val, 0, sensorLength, 4, 0));
-          let position = this.sensors[i].dir;
+          let position = this.foodSensors[i].dir;
           line(0, 0, position.x * val, position.y * val);
         }
       }
+
+      for (let i = 0; i < this.wallSensors.length; i++) {
+        let val = this.wallSensors[i].val;
+        if (val > 0) {
+          stroke(red);
+          strokeWeight(map(val, 0, sensorLength, 4, 0));
+          let position = this.wallSensors[i].dir;
+          line(0, 0, position.x * val, position.y * val);
+        }
+      }
+
       // Display score next to each vehicle
       noStroke();
       fill(255, 200);
-      text(int(this.score), 10, 0);
+      text(this.health.toFixed(2), 10, 0);
     }
     // Draw a triangle rotated in the direction of velocity
     let theta = this.velocity.heading() + PI / 2;
