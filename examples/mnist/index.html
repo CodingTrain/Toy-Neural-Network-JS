@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>mnist</title>
+
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.dom.min.js"></script>
+	<script src="mnist.js"></script>
+	<script src="sketch.js"></script>
+	<script src="../../lib/nn.js"></script>
+	<script src="../../lib/matrix.js"></script>
+
+	<style>
+
+		body {
+			font-size:30pt;
+		}
+		.correct {
+			color: #00CC00
+		}
+		.wrong {
+			color: #CC0000
+		}
+
+
+	</style>
+
+
+
+
+</head>
+<body>
+
+	<div id="container"></div>
+
+	<p id="info">
+
+		<!-- Label: <span id="label"></span><br/>
+		Guess: <span id="guess"></span><br/> -->
+		<br/>
+		Testing: <span id="percent"></span><br/>
+		<br/>
+		User Guess: <span id="user_guess"></span>
+	</p>
+
+</body>
+</html>
