@@ -23,7 +23,7 @@ Here are some demos running directly in the browser:
 * [ ] Support for different activation functions (see [#45](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/45), [#62](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/62))
 * [ ] Support for multiple hidden layers (see [#61](https://github.com/CodingTrain/Toy-Neural-Network-JS/pull/61))
 * [ ] Support for neuro-evolution
-    * [ ] play flappy bird (many players at once). 
+    * [ ] play flappy bird (many players at once).
     * [ ] play pong (many game simulations at once)
     * [ ] steering sensors (a la Jabril's forrest project!)
 * [ ] Combine with ml5 / deeplearnjs
@@ -75,6 +75,7 @@ Here are some libraries with the same or similar functionality to this one built
 - [Java Neural Network Library](https://github.com/kim-marcel/basic_neural_network) by [kim-marcel](https://github.com/kim-marcel)
 - [Library-less Java Neural Network](https://github.com/Fir3will/Java-Neural-Network) by [Fir3will](https://github.com/Fir3will)
 - [Python Neural Network Library](https://github.com/Gabriel-Teston/Machine-Learning) by [Gabriel-Teston](https://github.com/Gabriel-Teston)
+- [Simple-NeuralNetwork-Py](https://github.com/iJohnMaged/Simple-NeuralNetwork-Py) by [iJohnMaged](https://github.com/iJohnMaged)
 
 Feel free to add your own libraries.
 
