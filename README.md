@@ -4,8 +4,9 @@ Neural Network JavaScript library for Coding Train tutorials
 
 ## Examples / Demos
 Here are some demos running directly in the browser:
-* [XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/)
+* [XOR problem](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/xor/), [Coding Challenge on YouTube](https://www.youtube.com/watch?v=188B6k_F9jU)
 * [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
+* [Doodle classifier](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/doodle_classification/), [Coding Challenge on YouTube](https://www.youtube.com/watch?v=pqY_Tn2SIVA&list=PLRqwX-V7Uu6Zs14zKVuTuit6jApJgoYZQ)
 
 ## To-Do List
 
@@ -66,6 +67,16 @@ The Tests can either be checked via the automaticly running CircleCI Tests or yo
 ## Contributing
 
 Please send PullRequests. These need to pass a automated Test first and after it will get reviewed and on that review either denied or accepted.
+
+## Libraries built by the community
+
+Here are some libraries with the same or similar functionality to this one built by the community:
+
+- [Java Neural Network Library](https://github.com/kim-marcel/basic_neural_network) by [kim-marcel](https://github.com/kim-marcel)
+- [Library-less Java Neural Network](https://github.com/Fir3will/Java-Neural-Network) by [Fir3will](https://github.com/Fir3will)
+- [Python Neural Network Library](https://github.com/Gabriel-Teston/Machine-Learning) by [Gabriel-Teston](https://github.com/Gabriel-Teston)
+
+Feel free to add your own libraries.
 
 ## Versioning
 
