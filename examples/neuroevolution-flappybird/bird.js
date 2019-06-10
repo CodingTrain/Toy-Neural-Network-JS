@@ -62,7 +62,7 @@ class Bird {
     let closest = null;
     let record = Infinity;
     for (let i = 0; i < pipes.length; i++) {
-      let diff = pipes[i].x - this.x;
+      let diff = pipes[i].x - this.x + pipes[i].w;
       if (diff > 0 && diff < record) {
         record = diff;
         closest = pipes[i];
