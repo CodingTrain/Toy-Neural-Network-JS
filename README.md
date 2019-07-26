@@ -78,6 +78,7 @@ Here are some libraries with the same or similar functionality to this one built
 - [Python Neural Network Library](https://github.com/GypsyDangerous/simple-deep-neural-network/blob/master/README.md) by [David Snyder](https://github.com/GypsyDangerous)
 - [JavaScript Multi-Layer Neural Network Library](https://github.com/notshekhar/neuralnet) by [Shekhar Tyagi](https://github.com/notshekhar)
 - [F# Neural Network Library](https://github.com/jackroi/NeuralNetwork-fsharp) by [jackroi](https://github.com/jackroi)
+- [TinyNeuralNetwork4Java](https://github.com/anirudhgiri/TinyNN4J) by [Anirudh Giri](https://github.com/anirudhgiri)
 
 Feel free to add your own libraries.
 
