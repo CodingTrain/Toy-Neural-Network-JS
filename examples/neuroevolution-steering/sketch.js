@@ -28,7 +28,7 @@ let foodBuffer = 50;
 // How many sensors does each vehicle have?
 let totalSensors = 8;
 // How far can each vehicle see?
-let sensorLength = 150;
+let sensorLength = 50;
 // What's the angle in between sensors
 let sensorAngle = (Math.PI * 2) / totalSensors;
 
@@ -94,13 +94,18 @@ function draw() {
     if (population.length < 20) {
       for (let v of population) {
         // Every vehicle has a chance of cloning itself according to score
-        // Argument to "clone" is probability
-        let newVehicle = v.clone(0.1 * v.score / record);
+        let probability = 0.1 * v.score / record;
+        let newVehicle = v.clone(probability);
         // If there is a child
         if (newVehicle != null) {
           population.push(newVehicle);
         }
       }
+    }
+    // Make sure we never run out of vehicles, but favor reproduction
+    if (population.length <= 2) {
+      let vehicle = new Vehicle();
+      population.push(vehicle);
     }
   }
 
