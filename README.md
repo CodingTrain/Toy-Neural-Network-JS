@@ -8,6 +8,9 @@ Here are some demos running directly in the browser:
 * [Handwritten digit recognition](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/mnist/)
 * [Doodle classifier](https://codingtrain.github.io/Toy-Neural-Network-JS/examples/doodle_classification/), [Coding Challenge on YouTube](https://www.youtube.com/watch?v=pqY_Tn2SIVA&list=PLRqwX-V7Uu6Zs14zKVuTuit6jApJgoYZQ)
 
+Or these examples can be executed on your computer with python (See prerequisites and installation):
+* [XOR problem in Python](https://github.com/000alen/Toy-Neural-Network-JS/blob/master/python/examples/xor.py)
+
 ## To-Do List
 
 * [x] Redo gradient descent video about
@@ -44,15 +47,25 @@ You need to have the following installed:
 npm install
 ```
 
+For Python:
+
+1. Python 2.7
+
 ### Installing
 
-This Project doesn't require any additional Installing steps
+For Javascript, this Project doesn't require any additional Installing steps
+
+For Python, you just have to put the [file](https://github.com/000alen/Toy-Neural-Network-JS/blob/master/python/nn.py) in the root of your Project
 
 ### Documentation
 
 * `NeuralNetwork` - The neural network class
   * `predict(input_array)` - Returns the output of a neural network
+  * `setLearningRate(learning_rate = 0.01)` - Sets the learning rate of a neuronal network
+  * `setActivationFunction(func = sigmoid)` - Sets the activation function of a neuronal network
   * `train(input_array, target_array)` - Trains a neural network
+  * `serialize()` - Returns data of a neuronal network in `JSON`
+  * `deserialize(data)` - Sets data of a neuronal network in `JSON`
 
 ## Running the tests
 
