@@ -80,7 +80,7 @@ Here are some libraries with the same or similar functionality to this one built
 - [F# Neural Network Library](https://github.com/jackroi/NeuralNetwork-fsharp) by [jackroi](https://github.com/jackroi)
 - [TinyNeuralNetwork4Java](https://github.com/anirudhgiri/TinyNN4J) by [Anirudh Giri](https://github.com/anirudhgiri)
 - [miniANN Neural Network Library JavaScript](https://github.com/savvysiddharth/mini-ANN-js) by [Siddharth Maurya](https://github.com/savvysiddharth)
-
+- [Multilayered Neural Network Library](https://github.com/bit-shashank/tinn) by [Shashank Sahu](https://github.com/bit-shashank)
 Feel free to add your own libraries.
 
 ## Versioning
