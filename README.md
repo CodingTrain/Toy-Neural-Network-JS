@@ -73,7 +73,7 @@ Please send PullRequests. These need to pass a automated Test first and after it
 Here are some libraries with the same or similar functionality to this one built by the community:
 
 - [Java Neural Network Library](https://github.com/kim-marcel/basic_neural_network) by [kim-marcel](https://github.com/kim-marcel)
-- [Library-less Java Neural Network](https://github.com/Fir3will/Java-Neural-Network) by [Fir3will](https://github.com/Fir3will)
+- [Library-less Java Neural Network](https://github.com/theKayani/Java-Neural-Network) by [theKayani](https://github.com/theKayani)
 - [Python Neural Network Library](https://github.com/Gabriel-Teston/Machine-Learning) by [Gabriel-Teston](https://github.com/Gabriel-Teston)
 - [Python Neural Network Library](https://github.com/GypsyDangerous/simple-deep-neural-network/blob/master/README.md) by [David Snyder](https://github.com/GypsyDangerous)
 - [JavaScript Multi-Layer Neural Network Library](https://github.com/notshekhar/neuralnet) by [Shekhar Tyagi](https://github.com/notshekhar)
