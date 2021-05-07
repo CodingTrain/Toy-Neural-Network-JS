@@ -11,10 +11,8 @@
     "url": "git+https://github.com/CodingTrain/Toy-Neural-Network-JS.git"
   },
   "keywords": [
-    "neural",
-    "network",
-    "machine",
-    "learning",
+    "neural network",
+    "machine learning",
     "education",
     "javascript"
   ],
@@ -25,6 +23,11 @@
   },
   "homepage": "https://github.com/shiffman/Toy-Neural-Network-JS#readme",
   "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
     "jest": "^22.1.4"
   }
 }
