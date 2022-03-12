@@ -70,7 +70,7 @@ function poolSelection(birds) {
   let r = random(1);
 
   // Keep subtracting probabilities until you get less than zero
-  // Higher probabilities will be more likely to be fixed since they will
+  // Higher probabilities will be more likely to be picked since they will
   // subtract a larger number towards zero
   while (r > 0) {
     r -= birds[index].fitness;
