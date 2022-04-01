@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,45 +8,249 @@
 
 	<title>mnist</title>
 
-  <script src="libraries/p5.min.js"></script>
-  <script src="libraries/p5.dom.min.js"></script>
+	<script src="libraries/p5.min.js"></script>
+	<script src="libraries/p5.dom.min.js"></script>
 	<script src="mnist.js"></script>
 	<script src="sketch.js"></script>
 	<script src="../../lib/nn.js"></script>
 	<script src="../../lib/matrix.js"></script>
 
 	<style>
-
-		body {
-			font-size:30pt;
-		}
-		.correct {
-			color: #00CC00
-		}
-		.wrong {
-			color: #CC0000
+		.number {
+			font-weight: bold;
+			width: 10px;
 		}
 
+		.higher {
+			background: lightgreen;
+		}
 
+		td,
+		th {
+			text-align: center;
+		}
 	</style>
 
 
 
 
 </head>
+
 <body>
 
 	<div id="container"></div>
 
-	<p id="info">
+	<h2>Training Process</h2>
 
-		<!-- Label: <span id="label"></span><br/>
-		Guess: <span id="guess"></span><br/> -->
-		<br/>
+	<p id="info">
 		Testing: <span id="percent"></span><br/>
-		<br/>
-		User Guess: <span id="user_guess"></span>
+		<br/> User Guess: <span id="user_guess"></span>
 	</p>
 
+	<h2>Output Visualization</h2>
+
+	<table border="1">
+		<tr>
+			<th>Number</th>
+			<th>Probability</th>
+		</tr>
+		<tr>
+			<td class="number">0</td>
+			<td id="prob0">0</td>
+		</tr>
+		<tr>
+			<td class="number">1</td>
+			<td id="prob1">0</td>
+		</tr>
+		<tr>
+			<td class="number">2</td>
+			<td id="prob2">0</td>
+		</tr>
+		<tr>
+			<td class="number">3</td>
+			<td id="prob3">0</td>
+		</tr>
+		<tr>
+			<td class="number">4</td>
+			<td id="prob4">0</td>
+		</tr>
+		<tr>
+			<td class="number">5</td>
+			<td id="prob5">0</td>
+		</tr>
+		<tr>
+			<td class="number">6</td>
+			<td id="prob6">0</td>
+		</tr>
+		<tr>
+			<td class="number">7</td>
+			<td id="prob7">0</td>
+		</tr>
+		<tr>
+			<td class="number">8</td>
+			<td id="prob8">0</td>
+		</tr>
+		<tr>
+			<td class="number">9</td>
+			<td id="prob9">0</td>
+		</tr>
+	</table>
+	<table id="prediction_table" border="1">
+		<tr>
+			<th></th>
+			<th nowrap>Predicted 0</th>
+			<th nowrap>Predicted 1</th>
+			<th nowrap>Predicted 2</th>
+			<th nowrap>Predicted 3</th>
+			<th nowrap>Predicted 4</th>
+			<th nowrap>Predicted 5</th>
+			<th nowrap>Predicted 6</th>
+			<th nowrap>Predicted 7</th>
+			<th nowrap>Predicted 8</th>
+			<th nowrap>Predicted 9</th>
+			<th nowrap>Accuracy</th>
+		</tr>
+		<tr id="label0">
+			<th nowrap>Label 0</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label1">
+			<th>Label 1</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label2">
+			<th>Label 2</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label3">
+			<th>Label 3</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label4">
+			<th>Label 4</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label5">
+			<th>Label 5</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label6">
+			<th>Label 6</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label7">
+			<th>Label 7</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label8">
+			<th>Label 8</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+		<tr id="label9">
+			<th>Label 9</th>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+		</tr>
+	</table>
 </body>
+
 </html>

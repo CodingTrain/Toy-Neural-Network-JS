@@ -1,14 +1,11 @@
 let mnist;
 
-
 let train_index = 0;
 
 // testing variables
 let test_index = 0;
 let total_tests = 0;
 let total_correct = 0;
-
-
 
 let nn;
 let train_image;
@@ -18,6 +15,7 @@ let user_has_drawing = false;
 
 let user_guess_ele;
 let percent_ele;
+let predict_stats = [];
 
 function setup() {
   createCanvas(400, 200).parent('container');
@@ -30,9 +28,12 @@ function setup() {
   user_guess_ele = select('#user_guess');
   percent_ele = select('#percent');
 
+  for (let i = 0; i < 10; i++) {
+    predict_stats[i] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  }
+
   loadMNIST(function(data) {
     mnist = data;
-    console.log(mnist);
   });
 }
 
@@ -70,6 +71,8 @@ function train(show) {
   let prediction = nn.predict(inputs);
   let guess = findMax(prediction);
 
+  predict_stats[label][guess] += 1;
+
   nn.train(inputs, targets);
   train_index = (train_index + 1) % mnist.train_labels.length;
 }
@@ -101,17 +104,12 @@ function testing() {
     total_tests = 0;
     total_correct = 0;
   }
-
-
-
-
-
 }
 
 
 function guessUserDigit() {
   let img = user_digit.get();
-  if(!user_has_drawing) {
+  if (!user_has_drawing) {
     user_guess_ele.html('_');
     return img;
   }
@@ -124,6 +122,16 @@ function guessUserDigit() {
   let prediction = nn.predict(inputs);
   let guess = findMax(prediction);
   user_guess_ele.html(guess);
+
+  if (user_has_drawing && (frameCount % 60 === 0)) {
+    for (let i = 0; i < prediction.length; i++) {
+      select('#prob' + i).html(nf(prediction[i] * 100, 2, 2) + "%");
+      select('#prob' + i).removeClass("higher")
+      if (i === guess) {
+        select('#prob' + i).addClass("higher");
+      }
+    }
+  }
   return img;
 }
 
@@ -154,8 +162,26 @@ function draw() {
   if (mouseIsPressed) {
     user_has_drawing = true;
     user_digit.stroke(255);
-    user_digit.strokeWeight(16);
+    user_digit.strokeWeight(8);
     user_digit.line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+
+
+  if (frameCount % 120 === 0) {
+    for (let i = 0; i < predict_stats.length; i++) {
+      let cols = selectAll('td', select('#label' + i));
+      let total = 0;
+      let higher = findMax(predict_stats[i]);
+      for (var j = 0; j < predict_stats.length; j++) {
+        cols[j].html(predict_stats[i][j]);
+        cols[j].removeClass("higher")
+        if (j === higher) {
+          cols[j].addClass("higher");
+        }
+        total += predict_stats[i][j]
+      }
+      cols[cols.length - 1].html(nf((predict_stats[i][i] / total * 100), 2, 2) + "%");
+    }
   }
 }
 
