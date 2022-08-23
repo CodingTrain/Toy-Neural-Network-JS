@@ -59,10 +59,34 @@ function normalizeFitness(birds) {
   }
 }
 
+/**
+ * Since the p5 shuffle array is deprecated define a new shuffle
+ * Shuffles array in place. Fisher Yates 
+ * https://stackoverflow.com/a/6274381
+ * @param {Array} a items An array containing the items.
+ */
+function fyShuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
 
 // An algorithm for picking one bird from an array
 // based on fitness
 function poolSelection(birds) {
+  //make a copy of the birds array
+  //so that the function remains stateless
+  clone = birds.slice();
+  
+  //shullfe the array
+  //otherwise we go through the array,
+  //from least successful to most which introduces 
+  //a bias towards picking worse pefrorming birds
+  fyShuffle(clone);
+  
   // Start at 0
   let index = 0;
 
@@ -73,7 +97,7 @@ function poolSelection(birds) {
   // Higher probabilities will be more likely to be fixed since they will
   // subtract a larger number towards zero
   while (r > 0) {
-    r -= birds[index].fitness;
+    r -= clone[index].fitness;
     // And move on to the next
     index += 1;
   }
