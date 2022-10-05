@@ -25,6 +25,9 @@ let allTimeHighScoreSpan;
 // All time high score
 let highScore = 0;
 
+// Count generations
+let generations = 1
+
 // Training or just showing the current best
 let runBest = false;
 let runBestButton;
@@ -34,6 +37,8 @@ function setup() {
   canvas.parent('canvascontainer');
 
   // Access the interface elements
+  generationText = select('#gens');
+  birdsAlive = select('#birdsalive');
   speedSlider = select('#speedSlider');
   speedSpan = select('#speed');
   highScoreSpan = select('#hs');
@@ -159,6 +164,8 @@ function draw() {
   // Update DOM Elements
   highScoreSpan.html(tempHighScore);
   allTimeHighScoreSpan.html(highScore);
+  generationText.html(generations);
+  birdsAlive.html(activeBirds.length);
 
   // Draw everything!
   for (let i = 0; i < pipes.length; i++) {
@@ -173,6 +180,7 @@ function draw() {
     }
     // If we're out of birds go to the next generation
     if (activeBirds.length == 0) {
+      generations++;
       nextGeneration();
     }
   }
